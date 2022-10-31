@@ -3,6 +3,7 @@ package com.program.parking.models;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,15 +17,24 @@ public class ParkingSpotModel implements Serializable {
 	
 		@Id
 		@GeneratedValue(strategy = GenerationType.IDENTITY)
-		private Long id;		
+		private Long id;
+		@Column(nullable= false)
 		private String parkingSpotNumber;
+		@Column(nullable= false)
 		private String LicencePlateCar;
+		@Column(nullable= false)
 		private String brandCar;
+		@Column(nullable= false)
 		private String modelCar;
+		@Column(nullable= false)
 		private String colorCar;
+		@Column(nullable= false)
 		private LocalDateTime registrationDate;
+		@Column(nullable= false)
 		private String responsibleName;
+		@Column(nullable= false)
 		private String apartment;
+		@Column(nullable= false)
 		private String block;		
 		
 		public ParkingSpotModel() {
