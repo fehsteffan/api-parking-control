@@ -1,5 +1,7 @@
 package com.program.parking.services;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
@@ -37,10 +39,8 @@ public class ParkingService {
 		return parkingRepository.existsByApartmentAndBlock(apartment, block);
 	}
 	
-	
-	
-	
-	
-	
+	public List<ParkingSpotModel> findAll() {
+		return parkingRepository.findAll();
+	}	
 	
 }

@@ -53,15 +53,11 @@ public class ParkingController {
 		return ResponseEntity.status(HttpStatus.CREATED).body(parkingService.save(parkingSpotModel));
 				
 	}	
-		
-}
 	
-	
-	
-	
-	
-	
-	
-	
+	@GetMapping
+	public ResponseEntity<List<ParkingSpotModel>> findAll() {
+		List<ParkingSpotModel> list = parkingService.findAll();
+		return ResponseEntity.ok().body(list);
+   }	
 
 }
