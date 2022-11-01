@@ -21,6 +21,7 @@ public class ParkingDto {
 	@NotBlank
 	private String block;
 	
+	
 	public ParkingDto() {
 		
 	}

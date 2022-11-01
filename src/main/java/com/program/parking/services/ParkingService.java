@@ -1,22 +1,26 @@
 package com.program.parking.services;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import javax.transaction.Transactional;
+
 import org.springframework.stereotype.Service;
 
-import com.program.parking.repositories.ParkingRepository;
+import com.program.parking.models.ParkingSpotModel;
+import com.program.parking.repositories.ParkingSpotRepository;
 
 @Service
 public class ParkingService {
 	
-	@Autowired
-	private ParkingRepository repository;
 	
-	
-	
-	
-	
-	
-	
+	final ParkingSpotRepository parkingRepository;
+
+	public ParkingService(ParkingSpotRepository parkingRepository) {		
+		this.parkingRepository = parkingRepository;
+	}
 	
 
+	@Transactional
+	public ParkingSpotModel save(ParkingSpotModel parkingSpotModel) {		
+		return parkingRepository.save(parkingSpotModel);
+	}		
+	
 }
