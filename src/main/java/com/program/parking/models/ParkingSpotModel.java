@@ -16,12 +16,12 @@ public class ParkingSpotModel implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 		@Id
-		@GeneratedValue(strategy = GenerationType.IDENTITY)
+		@GeneratedValue(strategy = GenerationType.AUTO)
 		private Long id;
-		@Column(nullable= false)
+		@Column(nullable= false, unique = true)
 		private String parkingSpotNumber;
-		@Column(nullable= false)
-		private String LicencePlateCar;
+		@Column(nullable= false,  unique = true)
+		private String licensePlateCar;
 		@Column(nullable= false)
 		private String brandCar;
 		@Column(nullable= false)
@@ -41,13 +41,13 @@ public class ParkingSpotModel implements Serializable {
 			
 		}
 
-		public ParkingSpotModel(Long id, String parkingSpotNumber, String licencePlateCar, String brandCar,
+		public ParkingSpotModel(Long id, String parkingSpotNumber, String licensePlateCar, String brandCar,
 				String modelCar, String colorCar, LocalDateTime registrationDate, String responsibleName,
 				String apartment, String block) {
 			super();
 			this.id = id;
 			this.parkingSpotNumber = parkingSpotNumber;
-			LicencePlateCar = licencePlateCar;
+			this.licensePlateCar = licensePlateCar;
 			this.brandCar = brandCar;
 			this.modelCar = modelCar;
 			this.colorCar = colorCar;
@@ -74,11 +74,11 @@ public class ParkingSpotModel implements Serializable {
 		}
 
 		public String getLicencePlateCar() {
-			return LicencePlateCar;
+			return licensePlateCar;
 		}
 
 		public void setLicencePlateCar(String licencePlateCar) {
-			LicencePlateCar = licencePlateCar;
+			licensePlateCar = licencePlateCar;
 		}
 
 		public String getBrandCar() {
