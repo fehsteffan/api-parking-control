@@ -1,6 +1,7 @@
 package com.program.parking.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.transaction.Transactional;
 
@@ -42,5 +43,10 @@ public class ParkingService {
 	public List<ParkingSpotModel> findAll() {
 		return parkingRepository.findAll();
 	}	
+	
+	
+	public Optional<ParkingSpotModel>  findById(Long id) {
+		return parkingRepository.findById(id);
+	}
 	
 }
