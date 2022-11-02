@@ -11,6 +11,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -63,7 +64,7 @@ public class ParkingController {
    }	
 	
 	@GetMapping(value="/{id}")
-	public ResponseEntity<Object> findById(@PathVariable Long id) {
+	public ResponseEntity<Object>  findById(@PathVariable Long id) {
 		Optional<ParkingSpotModel> parkingSpotModelOptional = parkingService.findById(id);
 		if(!parkingSpotModelOptional.isPresent()) {
 		return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Parking Spot not found");
@@ -72,8 +73,15 @@ public class ParkingController {
 	}
 	
 	
-	
-	
-	
+	@DeleteMapping
+	public ResponseEntity<Object> findByDelete(@PathVariable Long id) {
+		Optional<ParkingSpotModel> ParkingSpotModelOptional = parkingService.findById(id);
+		if(!ParkingSpotModelOptional.isPresent()) {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Parking Spot not found.");
+		}	
+		
+		parkingService.delete(ParkingSpotModelOptional.get());	
+		return ResponseEntity.status(HttpStatus.OK).body("Parking Spot deleted successfully ");
+	}	
 
 }
