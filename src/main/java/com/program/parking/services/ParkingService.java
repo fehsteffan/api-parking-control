@@ -54,4 +54,7 @@ public class ParkingService {
 		parkingRepository.delete(parkingSpotModel);
 	}	
 	
+	public void uddateDate(ParkingSpotModel parkingSpotModel) {
+		parkingRepository.save(parkingSpotModel);
+	}	
 }
