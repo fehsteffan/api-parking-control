@@ -1,4 +1,4 @@
-#API-PARKING-CONTROL
+# API-PARKING-CONTROL
 
 SOBRE:
 
@@ -7,7 +7,7 @@ Nesse projeto exploro tanto a parte teórica quanto prática do Spring, desde a 
 
 
 
-#Preparação Ambiente:
+# Preparação Ambiente:
 - JDK 11
 - Maven
 - Postman
